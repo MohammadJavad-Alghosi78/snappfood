@@ -1,5 +1,7 @@
+import { IFinalResult } from "@/services/vendors/types";
+
 export interface IVendorsState {
   loading: boolean;
-  vendors: Array<any>;
+  vendors: Array<IFinalResult>;
   errorMessage: string;
 }

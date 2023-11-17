@@ -9,8 +9,12 @@ import { words } from "@/strings";
 // styles
 import colors from "../../../theme/colors.module.scss";
 import "./card.scss";
+import { LegacyRef, forwardRef } from "react";
 
-const Card = (props: ICardProps) => {
+const Card = forwardRef(function Card(
+  props: ICardProps,
+  ref: LegacyRef<HTMLElement>
+) {
   const {
     coverImage,
     numOfVotes,
@@ -21,13 +25,13 @@ const Card = (props: ICardProps) => {
     deliveryPrice,
   } = props;
   return (
-    <article className="card">
+    <article className="card" ref={ref}>
       <header className="card__header">
         <Image
           className="card_cover"
           src={coverImage}
           layout="fill"
-          alt=""
+          alt="cover image"
           loading="eager"
         />
         <div className="card__logo">
@@ -66,6 +70,6 @@ const Card = (props: ICardProps) => {
       </footer>
     </article>
   );
-};
+});
 
 export default Card;

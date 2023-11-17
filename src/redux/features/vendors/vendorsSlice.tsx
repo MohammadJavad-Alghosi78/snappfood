@@ -15,7 +15,7 @@ export const vendorsSlice = createSlice({
     setVendorsData: (state, action) => ({
       ...state,
       loading: false,
-      vendors: action.payload,
+      vendors: state.vendors.concat(action.payload),
     }),
     setVendorsError: (state, action) => ({
       ...state,
