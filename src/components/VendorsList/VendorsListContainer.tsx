@@ -4,8 +4,11 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 // components
 import VendorsList from ".";
+// services
 import { VendorServices } from "@/services";
+// constants
 import { defaultParams } from "@/constants";
+// redux
 import {
   fetchVendors,
   setVendorsData,
@@ -14,8 +17,8 @@ import {
 
 const VendorsListContainer = () => {
   const dispatch = useDispatch();
-  const [page, setPage] = useState(1);
 
+  const [page, setPage] = useState(1);
   const [lastElement, setLastElement] = useState<HTMLElement | null>(null);
 
   const observerRef = new IntersectionObserver(([entry]) => {

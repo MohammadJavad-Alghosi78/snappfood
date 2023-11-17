@@ -1,4 +1,5 @@
 // node_modules
+import { LegacyRef, forwardRef } from "react";
 import Image from "next/image";
 // components
 import Typography from "../Typography";
@@ -9,7 +10,6 @@ import { words } from "@/strings";
 // styles
 import colors from "../../../theme/colors.module.scss";
 import "./card.scss";
-import { LegacyRef, forwardRef } from "react";
 
 const Card = forwardRef(function Card(
   props: ICardProps,
@@ -17,7 +17,6 @@ const Card = forwardRef(function Card(
 ) {
   const {
     coverImage,
-    numOfVotes,
     rating,
     restaurantLogo,
     restaurantTitle,

@@ -10,7 +10,6 @@ export interface ICardProps {
   coverImage: string;
   restaurantLogo: string;
   restaurantTitle: string;
-  numOfVotes: number;
   rating: number;
   description: string;
   deliveryPrice: number;
