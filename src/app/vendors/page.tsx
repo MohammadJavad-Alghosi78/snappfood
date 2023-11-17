@@ -1,4 +1,4 @@
-import { Typography } from "@/_components";
+import { Card, Typography } from "@/_components";
 
 const Vendors = () => {
   return (
@@ -27,6 +27,18 @@ const Vendors = () => {
       <Typography tag="span" color="gray">
         رستورا‌ن‌ها
       </Typography>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <Card
+        coverImage=""
+        numOfVotes={2}
+        rating={2.5}
+        restaurantLogo=""
+        restaurantTitle=""
+      />
     </>
   );
 };
