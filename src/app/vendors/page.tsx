@@ -1,44 +1,36 @@
-import { Card, Typography } from "@/_components";
+"use client";
+// node_modules
+import { useEffect } from "react";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+// store
+import {
+  fetchVendors,
+  setVendorsError,
+} from "../../_redux/features/vendors/vendorsSlice";
+import { IVendorsState } from "@/_redux/features/vendors/types";
 
 const Vendors = () => {
+  const data = useSelector((state: IVendorsState) => state.vendors);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        dispatch(fetchVendors());
+        const data = await axios.get(
+          "https://snappfood.ir/mobile/v3/restaurant/vendors-list?page=1&page_size:10&lat=35.754&long=51.328"
+        );
+        console.log(data);
+      } catch (error) {
+        dispatch(setVendorsError({ payload: "Errrrrrrrrrrror" }));
+      }
+    })();
+  }, []);
+
   return (
     <>
-      <Typography tag="h1" color="red">
-        رستورا‌ن‌ها
-      </Typography>
-      <Typography tag="h2" color="blue">
-        رستورا‌ن‌ها
-      </Typography>
-      <Typography tag="h3" color="green">
-        رستورا‌ن‌ها
-      </Typography>
-      <Typography tag="h4" color="black">
-        رستورا‌ن‌ها
-      </Typography>
-      <Typography tag="h5" color="pink">
-        رستورا‌ن‌ها
-      </Typography>
-      <Typography tag="h6" color="orange">
-        رستورا‌ن‌ها
-      </Typography>
-      <Typography tag="div" color="purple">
-        رستورا‌ن‌ها
-      </Typography>
-      <Typography tag="span" color="gray">
-        رستورا‌ن‌ها
-      </Typography>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Card
-        coverImage=""
-        numOfVotes={2}
-        rating={2.5}
-        restaurantLogo=""
-        restaurantTitle=""
-      />
+      <h1>test</h1>
     </>
   );
 };

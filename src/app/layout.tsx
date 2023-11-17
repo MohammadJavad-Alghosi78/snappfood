@@ -1,8 +1,10 @@
 // import { Inter } from 'next/font/google'
 
 // const inter = Inter({ subsets: ['latin'] })
+// node_modules
 import { ReactNode } from "react";
-import "../styles/globals.css";
+// redux
+import { Providers } from "@/_redux/provider";
 
 export const metadata = {
   title: "snappfood vendors list",
@@ -16,7 +18,9 @@ interface IRootLayout {
 const RootLayout = ({ children }: IRootLayout): JSX.Element => {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 };

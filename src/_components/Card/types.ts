@@ -12,4 +12,6 @@ export interface ICardProps {
   restaurantTitle: string;
   numOfVotes: number;
   rating: number;
+  description: string;
+  deliveryPrice: number;
 }

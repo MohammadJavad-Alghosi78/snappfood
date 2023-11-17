@@ -37,16 +37,21 @@
 
   .card__footer {
     padding: 20px 16px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
 
     .card__details {
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .card__description {
-      margin-block: 10px;
-    }
+    // .card__description {
+    //   margin-block: 10px;
+    // }
 
     .card__delivery {
       display: flex;

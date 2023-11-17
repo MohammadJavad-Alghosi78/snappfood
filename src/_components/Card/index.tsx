@@ -11,8 +11,15 @@ import colors from "../../_theme/colors.module.scss";
 import "./card.scss";
 
 const Card = (props: ICardProps) => {
-  const { coverImage, numOfVotes, rating, restaurantLogo, restaurantTitle } =
-    props;
+  const {
+    coverImage,
+    numOfVotes,
+    rating,
+    restaurantLogo,
+    restaurantTitle,
+    description,
+    deliveryPrice,
+  } = props;
   return (
     <article className="card">
       <header className="card__header">
@@ -29,10 +36,10 @@ const Card = (props: ICardProps) => {
       <footer className="card__footer">
         <div className="card__details">
           <Typography tag="h3" color={colors.primaryColor}>
-            کترینگ اعیان نو
+            {restaurantTitle}
           </Typography>
           <Typography tag="span" color={colors.starcolorDefault}>
-            4.1
+            {rating}
           </Typography>
         </div>
         <Typography
@@ -40,14 +47,14 @@ const Card = (props: ICardProps) => {
           tag="div"
           color={colors.textColor}
         >
-          ایرانی کباب مرغ
+          {description}
         </Typography>
         <div className="card__delivery">
           <Typography tag="span" color={colors.textColorLight}>
             {words.courierSeller}
           </Typography>
           <Typography tag="span" color={colors.textColor}>
-            رایگان
+            {deliveryPrice}
           </Typography>
         </div>
       </footer>
