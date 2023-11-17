@@ -4,7 +4,9 @@
 // node_modules
 import { ReactNode } from "react";
 // redux
-import { Providers } from "@/_redux/provider";
+import { Providers } from "@/redux/provider";
+// styles
+import "@/styles/globals.css";
 
 export const metadata = {
   title: "snappfood vendors list",

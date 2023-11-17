@@ -5,9 +5,9 @@ import Typography from "../Typography";
 // types
 import { ICardProps } from "./types";
 // strings
-import { words } from "@/_strings";
+import { words } from "@/strings";
 // styles
-import colors from "../../_theme/colors.module.scss";
+import colors from "../../../theme/colors.module.scss";
 import "./card.scss";
 
 const Card = (props: ICardProps) => {
@@ -23,7 +23,13 @@ const Card = (props: ICardProps) => {
   return (
     <article className="card">
       <header className="card__header">
-        <Image className="card_cover" src={coverImage} alt="" loading="eager" />
+        <Image
+          className="card_cover"
+          src={coverImage}
+          layout="fill"
+          alt=""
+          loading="eager"
+        />
         <div className="card__logo">
           <Image
             src={restaurantLogo}
