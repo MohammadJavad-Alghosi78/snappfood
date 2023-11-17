@@ -1,0 +1,42 @@
+@import "../../_theme/font-sizes.module.scss";
+@import "../../_theme/font-weights.module.scss";
+
+h1 {
+  font-size: $text-xxx-large;
+  font-weight: $font-bolder;
+}
+
+h2 {
+  font-size: $text-xx-large;
+  font-weight: $font-bolder;
+}
+
+h3 {
+  font-size: $text-x-large;
+  font-weight: $font-bold;
+}
+
+h4 {
+  font-size: $text-m-large;
+  font-weight: $font-medium;
+}
+
+h5 {
+  font-size: $text-large;
+  font-weight: $font-medium;
+}
+
+h6 {
+  font-size: $text-size;
+  font-weight: $font-medium;
+}
+
+div {
+  font-size: $text-medium;
+  font-weight: $font-regular;
+}
+
+span {
+  font-size: $text-small;
+  font-weight: $font-regular;
+}
