@@ -34,8 +34,10 @@ http.interceptors.response.use(
   },
   (error) => {
     if (error.response.status === STATUS_CODES.FORBIDDEN) {
+      // We should go to login page for example
       window.location.href = "/login";
     } else if (error.response.status === STATUS_CODES.UNTHORIZED) {
+      // We should go to homepage for example
       window.location.href = "/";
     }
     return Promise.reject(error);
