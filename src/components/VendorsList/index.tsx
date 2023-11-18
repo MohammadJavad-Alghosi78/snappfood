@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 // components
 import { Card, Loading, Typography } from "@/components";
 // types
-import { IFinalResult } from "@/services/vendors/types";
+import { IFinalResult, IFinalResultData } from "@/services/vendors/types";
 // store
 import { RootState } from "@/redux/store";
 // styles
@@ -14,6 +14,8 @@ const VendorsList = forwardRef(function VendorsList(_, ref: Ref<HTMLElement>) {
   const { vendors, loading, errorMessage } = useSelector(
     (state: RootState) => state.vendors
   );
+
+  const updatedVendors = vendors?.map((vendor: IFinalResult) => vendor.data);
 
   if (errorMessage) {
     return (
@@ -25,16 +27,16 @@ const VendorsList = forwardRef(function VendorsList(_, ref: Ref<HTMLElement>) {
 
   return (
     <div className={styles.vendors_wrapper}>
-      {vendors?.map((vendor: IFinalResult, index: number) => (
+      {updatedVendors?.map((vendor: IFinalResultData, index: number) => (
         <Card
-          key={index.toString()}
+          key={vendor.id.toString().concat(index.toString())}
           ref={ref}
-          restaurantTitle={vendor.data.title}
-          coverImage={vendor.data.backgroundImage}
-          deliveryPrice={vendor.data.deliveryFee}
-          description={vendor.data.description}
-          rating={vendor.data.rate}
-          restaurantLogo={vendor.data.defLogo}
+          restaurantTitle={vendor.title}
+          coverImage={vendor.backgroundImage}
+          deliveryPrice={vendor.deliveryFee}
+          description={vendor.description}
+          rating={vendor.rate}
+          restaurantLogo={vendor.defLogo}
         />
       ))}
       {loading && <Loading />}
