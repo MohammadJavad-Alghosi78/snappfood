@@ -3,10 +3,10 @@ import { words } from "@/strings";
 // components
 import Typography from "../Typography";
 // styles
-import "./loading.scss";
+import styles from "./loading.module.scss";
 
 const Loading = () => (
-  <div className="loading_wrapper">
+  <div className={styles.loading_wrapper}>
     <Typography tag="div">{words.loading}</Typography>
   </div>
 );

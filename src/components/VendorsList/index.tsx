@@ -8,7 +8,7 @@ import { IFinalResult } from "@/services/vendors/types";
 // store
 import { RootState } from "@/redux/store";
 // styles
-import "./vendors-list.scss";
+import styles from "./vendors-list.module.scss";
 
 const VendorsList = forwardRef(function VendorsList(_, ref: Ref<HTMLElement>) {
   const { vendors, loading, errorMessage } = useSelector(
@@ -17,14 +17,14 @@ const VendorsList = forwardRef(function VendorsList(_, ref: Ref<HTMLElement>) {
 
   if (errorMessage) {
     return (
-      <div className="error_wrapper">
+      <div className={styles.error_wrapper}>
         <Typography tag="h6">{errorMessage}</Typography>
       </div>
     );
   }
 
   return (
-    <div className="vendors_wrapper">
+    <div className={styles.vendors_wrapper}>
       {vendors?.map((vendor: IFinalResult, index: number) => (
         <Card
           key={index.toString()}

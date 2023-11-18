@@ -11,7 +11,7 @@ import { priceFormatter } from "@/utils";
 import { words } from "@/strings";
 // styles
 import colors from "../../../theme/colors.module.scss";
-import "./card.scss";
+import styles from "./card.module.scss";
 
 const Card = forwardRef(function Card(
   props: ICardProps,
@@ -26,17 +26,17 @@ const Card = forwardRef(function Card(
     deliveryPrice,
   } = props;
   return (
-    <article className="card" ref={ref}>
-      <header className="card__header">
+    <article className={styles.card} ref={ref}>
+      <header className={styles.card__header}>
         <Image
-          className="card_cover"
+          className={styles.card_cover}
           src={coverImage}
           layout="fill"
           alt="cover image"
           loading="eager"
           onError={() => console.log("The image did not load correctly")}
         />
-        <div className="card__logo">
+        <div className={styles.card__logo}>
           <Image
             src={restaurantLogo}
             alt={restaurantTitle}
@@ -45,27 +45,27 @@ const Card = forwardRef(function Card(
           />
         </div>
       </header>
-      <footer className="card__footer">
-        <div className="card__details">
+      <footer className={styles.card__footer}>
+        <div className={styles.card__details}>
           <Typography tag="h3" color={colors.primaryColor}>
             {restaurantTitle}
           </Typography>
           <Typography
             tag="span"
             color={colors.starcolorDefault}
-            className="card__rating"
+            className={styles.card__rating}
           >
             {rating}
           </Typography>
         </div>
         <Typography
-          className="card__description"
+          className={styles.card__description}
           tag="div"
           color={colors.textColor}
         >
           {description}
         </Typography>
-        <div className="card__delivery">
+        <div className={styles.card__delivery}>
           <Typography tag="span" color={colors.textColorLight}>
             {words.courierSeller}
           </Typography>
