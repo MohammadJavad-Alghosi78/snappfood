@@ -10,6 +10,10 @@ module.exports = {
         protocol: "https",
         hostname: "cdn.snappfood.ir",
       },
+      {
+        protocol: "https",
+        hostname: "www.zoodfood.com",
+      },
     ],
   },
 };

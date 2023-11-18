@@ -5,6 +5,8 @@ import Image from "next/image";
 import Typography from "../Typography";
 // types
 import { ICardProps } from "./types";
+// utils
+import { priceFormatter } from "@/utils";
 // strings
 import { words } from "@/strings";
 // styles
@@ -23,6 +25,7 @@ const Card = forwardRef(function Card(
     description,
     deliveryPrice,
   } = props;
+  console.log(description);
   return (
     <article className="card" ref={ref}>
       <header className="card__header">
@@ -47,7 +50,11 @@ const Card = forwardRef(function Card(
           <Typography tag="h3" color={colors.primaryColor}>
             {restaurantTitle}
           </Typography>
-          <Typography tag="span" color={colors.starcolorDefault}>
+          <Typography
+            tag="span"
+            color={colors.starcolorDefault}
+            className="card__rating"
+          >
             {rating}
           </Typography>
         </div>
@@ -63,7 +70,7 @@ const Card = forwardRef(function Card(
             {words.courierSeller}
           </Typography>
           <Typography tag="span" color={colors.textColor}>
-            {deliveryPrice}
+            {priceFormatter(deliveryPrice)} {words.priceUnit}
           </Typography>
         </div>
       </footer>

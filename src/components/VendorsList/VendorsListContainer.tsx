@@ -56,7 +56,7 @@ const VendorsListContainer = () => {
           ? dispatch(setVendorsData(finalResult))
           : setLastElement(null);
       } catch (error) {
-        dispatch(setVendorsError("Error has been occured!"));
+        dispatch(setVendorsError("Error has been occured"));
       }
     })();
   }, [page]);

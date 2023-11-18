@@ -2,7 +2,7 @@
 import { Ref, forwardRef } from "react";
 import { useSelector } from "react-redux";
 // components
-import { Card, Loading } from "@/components";
+import { Card, Loading, Typography } from "@/components";
 // types
 import { IFinalResult } from "@/services/vendors/types";
 // store
@@ -11,7 +11,18 @@ import { RootState } from "@/redux/store";
 import "./vendors-list.scss";
 
 const VendorsList = forwardRef(function VendorsList(_, ref: Ref<HTMLElement>) {
-  const { vendors, loading } = useSelector((state: RootState) => state.vendors);
+  const { vendors, loading, errorMessage } = useSelector(
+    (state: RootState) => state.vendors
+  );
+
+  if (errorMessage) {
+    return (
+      <div className="error_wrapper">
+        <Typography tag="h6">{errorMessage}</Typography>
+      </div>
+    );
+  }
+
   return (
     <div className="vendors_wrapper">
       {vendors?.map((vendor: IFinalResult, index: number) => (

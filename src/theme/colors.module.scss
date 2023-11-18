@@ -5,6 +5,7 @@ $starcolor-default: #305d02;
 $primary-color: #ff00a4;
 $white-color: #fff;
 $seperator-color: #e6e6e6;
+$dark-bilbao-color: rgba(63, 126, 0, 0.08);
 
 :export {
   primaryDeepGreen: $primary-deep-green;
@@ -14,4 +15,5 @@ $seperator-color: #e6e6e6;
   primaryColor: $primary-color;
   whiteColor: $white-color;
   seperatorColor: $seperator-color;
+  darkBilbaoColor: $dark-bilbao-color;
 }
