@@ -34,6 +34,7 @@ const Card = forwardRef(function Card(
           layout="fill"
           alt="cover image"
           loading="eager"
+          onError={() => console.log("The image did not load correctly")}
         />
         <div className="card__logo">
           <Image

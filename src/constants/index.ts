@@ -8,6 +8,7 @@ export const STATUS_CODES = {
   PERMANENT_REDIRECT: 308,
   // Client Error
   BAD_REQUEST: 400,
+  UNTHORIZED: 401,
   FORBIDDEN: 403,
   NOT_FOUND: 404,
   // Server Error

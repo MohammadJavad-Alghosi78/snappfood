@@ -1,37 +1,43 @@
 // node_modules
 import axios from "axios";
+// constants
+import { STATUS_CODES } from "@/constants";
 
 const http = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
-  // timeout: 20000,
+  timeout: 30000,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 http.interceptors.request.use(
-  (request) => {
-    // We can do somethinge here before request is sent
-
-    // ...
-    return request;
+  (config) => {
+    let newConfig = config;
+    // If our project had a login and register, we could receive the token here and use it:
+    // newConfig.headers.Authorization = `Bearer ${cookies.jwtToken}`;
+    return newConfig;
   },
   (error) => {
-    // We can do something with error raised from request
-
-    // ...
     return Promise.reject(error);
   }
 );
 
 http.interceptors.response.use(
   (response) => {
-    // We can do something with response
+    response.headers["accept"] = "application/json";
+    response.headers["content-type"] = "application/json";
+    response.config.headers["Accept"] = "application/json";
+    response.config.headers["Content-Type"] = "application/json";
 
-    // ...
     return response;
   },
   (error) => {
-    // We can do something with response error
-
-    // ...
+    if (error.response.status === STATUS_CODES.FORBIDDEN) {
+      window.location.href = "/login";
+    } else if (error.response.status === STATUS_CODES.UNTHORIZED) {
+      window.location.href = "/";
+    }
     return Promise.reject(error);
   }
 );
