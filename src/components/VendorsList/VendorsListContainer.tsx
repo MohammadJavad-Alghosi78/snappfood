@@ -21,11 +21,16 @@ const VendorsListContainer = () => {
   const [page, setPage] = useState(1);
   const [lastElement, setLastElement] = useState<HTMLElement | null>(null);
 
-  const observerRef = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) {
-      setPage((page) => page + 1);
-    }
-  });
+  let observerRef: IntersectionObserver;
+
+  // Tip: Because intersection observer is a browser API, we must make this condition
+  if (typeof window !== "undefined") {
+    observerRef = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setPage((page) => page + 1);
+      }
+    });
+  }
 
   useEffect(() => {
     if (lastElement) {

@@ -25,7 +25,6 @@ const Card = forwardRef(function Card(
     description,
     deliveryPrice,
   } = props;
-  console.log(description);
   return (
     <article className="card" ref={ref}>
       <header className="card__header">
